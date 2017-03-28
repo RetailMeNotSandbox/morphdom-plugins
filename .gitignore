@@ -1,0 +1,9 @@
+*.swp
+*.swo
+*.ignore
+node_modules
+npm-debug.log.*
+docs
+.nyc_output
+example/build/
+.DS_Store

@@ -1,0 +1,8 @@
+# vim: set syntax=yaml:
+---
+  extends: "./node_modules/@retailmenot/core-ui-eslintrc/.eslintrc"
+  env:
+    browser: true
+  rules:
+    consistent-return: 0
+    max-len: [2, 100]

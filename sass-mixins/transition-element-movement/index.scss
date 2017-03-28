@@ -1,0 +1,5 @@
+@mixin transitionElementMovement($transitionMotionClass: 'transition-motion', $transitionTiming: 400ms ease-in-out){
+	&.#{$transitionMotionClass} {
+		transition: transform $transitionTiming, height $transitionTiming, width $transitionTiming;
+	}
+}

@@ -1,0 +1,17 @@
+@mixin maxHeightOnAddedTransitions($transitionTiming: 400ms ease-in-out){
+	transition: max-height $transitionTiming;
+	overflow: hidden;
+	max-height: 0;
+}
+
+@mixin resetMaxHeightOnAddedTransitions(){
+	max-height: initial !important;
+}
+
+@mixin maxHeightTransitions($transitionTiming: 400ms ease-in-out, $collapsedSelector: ".is-collapsed"){
+	transition: max-height $transitionTiming;
+	overflow: hidden;
+	&#{$collapsedSelector} {
+		max-height: 0 !important;
+	}
+}

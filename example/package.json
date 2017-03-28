@@ -1,0 +1,39 @@
+{
+  "name": "@retailmenot/morphdom-plugins-example",
+  "version": "1.0.0",
+  "description": "Example project using morphdom-plugins and redux",
+  "private": true,
+  "scripts": {
+    "start": "webpack && node serve.js",
+    "build": "NODE_ENV=production webpack",
+    "dev": "webpack --config webpack.config.dev.js & nodemon serve.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Luke Zilioli <elzee08@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "morphdom",
+    "animations",
+    "example"
+  ],
+  "dependencies": {
+    "express": "^4.15.2",
+    "lodash": "^4.17.4"
+  },
+  "devDependencies": {
+    "@retailmenot/morphdom-plugins": "^1.0.0",
+    "css-loader": "^0.28.0",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "handlebars": "^4.0.6",
+    "handlebars-loader": "^1.4.0",
+    "jquery": "^3.2.1",
+    "morphdom": "^2.3.2",
+    "node-sass": "^4.5.2",
+    "object-path-immutable": "^0.5.1",
+    "redux": "^3.6.0",
+    "redux-actions": "^2.0.1",
+    "sass-loader": "^6.0.3",
+    "style-loader": "^0.16.1",
+    "webpack": "^2.3.2"
+  }
+}

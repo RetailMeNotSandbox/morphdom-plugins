@@ -1,0 +1,218 @@
+<div class="js-demo{{#if pluginsAreEnabled}} transitions-are-enabled{{/if}}">
+	<div class="demo">
+		<p>
+		This is a demo for the attrPersistence plugin. By default, calling
+		morphdom will update the DOM to exactly match the state of the rendered
+		template. This means that for any classes or style properties that you
+		define on your elements, your templates must be capable of re-rendering
+		the element to represent that state. This means that any class or style
+		changes that get applied with jQuery or some other framework will not
+		persist across calls to morphdom.
+		</p><p>
+		You can observe this undesirable behavior by clicking
+		<button class="js-toggle-plugins">{{#if pluginsAreEnabled}}Disable{{else}}Enable{{/if}} Plugins</button>
+		followed by "Modify with jQuery" followed by <button class="js-rerender">Trigger re-render</button>.
+		</p><p>
+		Notice that upon clicking "Trigger re-render", the element goes from
+		green back to white? That's because that is its default state in the
+		templates. Without the attrPersistence plugin, we have no way to persist
+		this state across re-renders without updating the templates.
+		</p><p>
+		Click <button class="js-toggle-plugins">{{#if pluginsAreEnabled}}Disable{{else}}Enable{{/if}} Plugins</button>
+		then click "Modify with jQuery" followed by
+		<button class="js-rerender">Trigger re-render</button>.
+		Note that this time, the element remains green, as expected.
+		</p>
+		<div id="persist-class" class="sample sample-persist-class"
+			{{#if pluginsAreEnabled}}data-persist-class="is-green"{{/if}}
+		>
+			Hello!
+			<button class="js-color-me">Modify with jQuery</button>
+		</div>
+	</div>
+	<div class="demo">
+		This is a demo for the cssTransitionGroup plugin.
+
+		Toggle an element in or out of the dom and watch it transition.
+		<button class="js-toggle-new-element">
+			{{#if includeNewElement}}remove{{else}}add{{/if}} new element
+		</button>
+		{{#if includeNewElement}}
+			<div id="add-remove" class="sample sample-add-remove"
+				{{#if pluginsAreEnabled}}data-transition-name="example-add-remove"{{/if}}
+				{{#if pluginsAreEnabled}}data-transition-enter-duration="1000"{{/if}}
+				{{#if pluginsAreEnabled}}data-transition-leave-duration="1000"{{/if}}
+			>
+				Hello!
+			</div>
+		{{/if}}
+	</div>
+	<div class="demo">
+		<p>
+		This is the first demo for the transitionElementHeight plugin.
+		Specifically, this demo is for the <code>data-transition-height-on-added</code>
+		feature, which will expand your element's height when it is added to
+		the dom. Toggle the element in or out of the page with this button:
+		</p>
+		<button class="js-toggle-expand-element">
+			{{#if includeSlideElement}}remove{{else}}add{{/if}} expandable element
+		</button>
+		{{#if includeSlideElement}}
+			<div id="slide" class="sample sample-height-on-added"
+				data-transition-height-on-added="true"
+				{{#if pluginsAreEnabled}}data-transition-height-on-added-delay="500"{{/if}}
+			>
+				<div data-transition-height-target="true">
+					Hello!
+				</div>
+			</div>
+		{{/if}}
+	</div>
+	<div class="demo">
+		<p>
+		This is the second demo for the transitionElementHeight plugin.
+		Specifically, this demo is for the <code>data-transition-height</code>
+		feature, which will let you expand/collapse an element by controlling
+		the presence or absence of a class through your template re-rendering.
+
+		The following button will trigger an action that will modify the redux
+		state in such a way that the is-collapsed class will appear on the node.
+		The transitionElementHeight plugin takes care of setting the max-height
+		appropriately so the css rules can do their thing.
+
+		There are two nodes below, one that starts with the is-collapsed class,
+		and one that does not.
+		</p>
+		<button class="js-toggle-toggle-slide-toggle-element">
+			toggle is-collapsed on nodes through redux
+		</button>
+		<div id="slide-toggle" class="sample sample-height{{#if isCollapsed}} is-collapsed{{/if}}"
+			{{#if pluginsAreEnabled}}data-transition-height="true"{{/if}}
+		>
+			<div data-transition-height-target="true">
+				Hello!
+			</div>
+		</div>
+		<div id="slide-toggle" class="sample sample-height{{#unless isCollapsed}} is-collapsed{{/unless}}"
+			{{#if pluginsAreEnabled}}data-transition-height="true"{{/if}}
+		>
+			<div data-transition-height-target="true">
+				Hello!
+			</div>
+		</div>
+	</div>
+	<div class="demo">
+		<p>
+		This demo is for the transitionElementMovement plugin. Clicking the
+		"move me throuhg redux" button modifies the state such that the template
+		render will add the `moved` class to the dom node. The moved class
+		modifies the height, width, and positioning of the node. The
+		transitionElementMovement plugin detects this change and modifies the
+		node's style properties such that the css rules animate the node change
+		across the page.
+		</p>
+		<div id="moveable" class="sample sample-movable{{#if isMoved}} moved{{/if}}"
+			{{#if pluginsAreEnabled}}data-transition-motion="true"{{/if}}
+			{{#if pluginsAreEnabled}}data-transition-motion-duration="500"{{/if}}
+		>
+			Hello!
+			<button class="js-move-element">
+				move me through redux
+			</button>
+		</div>
+	</div>
+	<div class="demo advanced-demo">
+		<p>
+		You can get pretty clever with your use of the plugins to achieve some
+		pretty cool animations.
+		</p>
+		<button class="js-toggle-advanced-elements">
+			{{#if includeAdvancedDemoElements}}remove{{else}}add{{/if}} new elements
+		</button>
+		{{#if includeAdvancedDemoElements}}
+			<div id="advanced-1" class="sample sample-advanced"
+				{{#if pluginsAreEnabled}}data-transition-name="advanced"{{/if}}
+				{{#if pluginsAreEnabled}}data-transition-enter-duration="500"{{/if}}
+				{{#if pluginsAreEnabled}}data-transition-enter-delay="200"{{/if}}
+				{{#if pluginsAreEnabled}}data-transition-leave-duration="1300"{{/if}}
+				{{#if pluginsAreEnabled}}data-transition-leave-delay="200"{{/if}}
+			>
+				Hello!
+			</div>
+			<div id="advanced-2" class="sample sample-advanced"
+				{{#if pluginsAreEnabled}}data-transition-name="advanced"{{/if}}
+				{{#if pluginsAreEnabled}}data-transition-enter-duration="500"{{/if}}
+				{{#if pluginsAreEnabled}}data-transition-enter-delay="400"{{/if}}
+				{{#if pluginsAreEnabled}}data-transition-leave-duration="1300"{{/if}}
+				{{#if pluginsAreEnabled}}data-transition-leave-delay="400"{{/if}}
+			>
+				Hello!
+			</div>
+			<div id="advanced-3" class="sample sample-advanced"
+				{{#if pluginsAreEnabled}}data-transition-name="advanced"{{/if}}
+				{{#if pluginsAreEnabled}}data-transition-enter-duration="500"{{/if}}
+				{{#if pluginsAreEnabled}}data-transition-enter-delay="600"{{/if}}
+				{{#if pluginsAreEnabled}}data-transition-leave-duration="1300"{{/if}}
+				{{#if pluginsAreEnabled}}data-transition-leave-delay="600"{{/if}}
+			>
+				Hello!
+			</div>
+			<div id="advanced-4" class="sample sample-advanced"
+				{{#if pluginsAreEnabled}}data-transition-name="advanced"{{/if}}
+				{{#if pluginsAreEnabled}}data-transition-enter-duration="500"{{/if}}
+				{{#if pluginsAreEnabled}}data-transition-enter-delay="800"{{/if}}
+				{{#if pluginsAreEnabled}}data-transition-leave-duration="1300"{{/if}}
+				{{#if pluginsAreEnabled}}data-transition-leave-delay="800"{{/if}}
+			>
+				Hello!
+			</div>
+		{{/if}}
+	</div>
+	<div class="demo advanced-demo">
+		<p>
+		You can get pretty clever with your use of the plugins to achieve some
+		pretty cool animations.
+		</p>
+		<button class="js-toggle-advanced-elements">
+			{{#if includeAdvancedDemoElements}}remove{{else}}add{{/if}} new elements
+		</button>
+		{{#if includeAdvancedDemoElements}}
+			<div id="advanced-2-1" class="sample sample-2-advanced"
+				{{#if pluginsAreEnabled}}data-transition-name="left"{{/if}}
+				{{#if pluginsAreEnabled}}data-transition-enter-duration="500"{{/if}}
+				{{#if pluginsAreEnabled}}data-transition-enter-delay="200"{{/if}}
+				{{#if pluginsAreEnabled}}data-transition-leave-duration="1300"{{/if}}
+				{{#if pluginsAreEnabled}}data-transition-leave-delay="800"{{/if}}
+			>
+				Hello!
+			</div>
+			<div id="advanced-2-2" class="sample sample-2-advanced"
+				{{#if pluginsAreEnabled}}data-transition-name="right"{{/if}}
+				{{#if pluginsAreEnabled}}data-transition-enter-duration="500"{{/if}}
+				{{#if pluginsAreEnabled}}data-transition-enter-delay="400"{{/if}}
+				{{#if pluginsAreEnabled}}data-transition-leave-duration="1300"{{/if}}
+				{{#if pluginsAreEnabled}}data-transition-leave-delay="600"{{/if}}
+			>
+				Hello!
+			</div>
+			<div id="advanced-2-3" class="sample sample-2-advanced"
+				{{#if pluginsAreEnabled}}data-transition-name="left"{{/if}}
+				{{#if pluginsAreEnabled}}data-transition-enter-duration="500"{{/if}}
+				{{#if pluginsAreEnabled}}data-transition-enter-delay="600"{{/if}}
+				{{#if pluginsAreEnabled}}data-transition-leave-duration="1300"{{/if}}
+				{{#if pluginsAreEnabled}}data-transition-leave-delay="400"{{/if}}
+			>
+				Hello!
+			</div>
+			<div id="advanced-2-4" class="sample sample-2-advanced"
+				{{#if pluginsAreEnabled}}data-transition-name="right"{{/if}}
+				{{#if pluginsAreEnabled}}data-transition-enter-duration="500"{{/if}}
+				{{#if pluginsAreEnabled}}data-transition-enter-delay="800"{{/if}}
+				{{#if pluginsAreEnabled}}data-transition-leave-duration="1300"{{/if}}
+				{{#if pluginsAreEnabled}}data-transition-leave-delay="200"{{/if}}
+			>
+				Hello!
+			</div>
+		{{/if}}
+	</div>
+</div>
