@@ -14,6 +14,10 @@
   "contributors": [
     "Luke Zilioli <elzee08@gmail.com>"
   ],
+  "repository" : {
+    "type": "git",
+    "url": "https://github.com/RetailMeNotSandbox/morphdom-plugins"
+  },
   "keywords": [
     "morphdom",
     "animations",
