@@ -1,6 +1,6 @@
 {
   "name": "@retailmenot/morphdom-plugins",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "Plugin system to help animating with morphdom",
   "main": "index.js",
   "scripts": {
