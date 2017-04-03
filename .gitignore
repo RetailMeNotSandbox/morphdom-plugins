@@ -3,7 +3,7 @@
 *.ignore
 node_modules
 npm-debug.log.*
-docs
+docs/@retailmenot
 .nyc_output
 example/build/
 .DS_Store

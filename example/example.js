@@ -1,8 +1,8 @@
 'use strict';
-require( './index.scss' );
+require( './example.scss' );
 var $ = require( 'jquery' );
 var actions = require( './actions' );
-var showBundleTmpl = require( './index.hbs' );
+var exampleTemplate = require( './example.hbs' );
 var demoReducer = require( './reducer' );
 var morphdom = require( 'morphdom' );
 var redux = require( 'redux' );
@@ -60,7 +60,7 @@ const morphdomConfig = morphdomPlugins.applyMorphdomPlugins( [
 
 function render() {
 	var model = store.getState();
-	var html = showBundleTmpl( model );
+	var html = exampleTemplate( model );
 	morphdom( $node.get(0), html, morphdomConfig );
 }
 
