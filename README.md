@@ -6,7 +6,9 @@ There are a few pieces of functionality we've isolated as it relates to morphdom
 
 # Demo App
 
-This repo contains a demo application that utilizes the plugins contained within this repo. To run:
+View the live demo [here](http://retailmenotsandbox.github.io/morphdom-plugins).
+
+Alternately, you can build and run the demo using express locally:
 
 ```bash
 cd example
@@ -14,7 +16,9 @@ npm install
 npm run start
 ```
 
-And visit [http://www.localhost:3000](http://www.localhost:3000)
+And visit [http://www.localhost:3000](http://www.localhost:3000).
+
+Developers, if you make changes to the demo that you want reflected on GitHub, run `./build-static-demo.sh`, commit the changes, and push them to the master branch.
 
 # applyMorphdomPlugins
 
@@ -303,4 +307,4 @@ Don't update a text field if it has focus, because the user is interacting with 
 - enable element to `transition-height-on-added` and `transition-height`
   at the same time–current behavior in this case is undefined
 - make `css-transition-group` work more reliably if animation is
-  reversed mid-wway through
+  reversed mid-way through
