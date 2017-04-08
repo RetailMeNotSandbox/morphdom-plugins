@@ -64,5 +64,8 @@
   },
   "roux": {
     "pantryRoot": "sass-mixins"
+  },
+  "dependencies": {
+    "camelcase": "^3.0.0"
   }
 }
