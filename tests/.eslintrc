@@ -1,8 +1,7 @@
 # vim: set syntax=yaml:
 ---
   extends: "../node_modules/@retailmenot/core-ui-eslintrc/.eslintrc-es6"
-  globals:
-    it: true
-    describe: true
+  env:
+    mocha: true
   rules:
     max-len: [2, 100]
